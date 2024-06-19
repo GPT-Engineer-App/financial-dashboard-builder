@@ -1,5 +1,5 @@
 import React from 'react';
-import { GaugeChart, ResponsiveContainer } from 'recharts';
+import { ResponsiveContainer } from 'recharts';
 
 const kpiData = [
   { name: 'Current Ratio', value: 1.5 },
@@ -14,7 +14,8 @@ const KPIs = () => {
       <h2>Key Performance Indicators (KPIs)</h2>
       <div style={{ width: '100%', height: 300 }}>
         <ResponsiveContainer>
-          <GaugeChart data={kpiData} />
+          {/* Placeholder for GaugeChart */}
+          <div>GaugeChart component is not available in Recharts. Please use a different library or custom implementation.</div>
         </ResponsiveContainer>
       </div>
     </div>
