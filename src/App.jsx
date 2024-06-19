@@ -1,29 +1,27 @@
-import { useState } from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui/card.jsx";
-import { Button } from "@/components/ui/button.jsx";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Index from "./pages/Index.jsx";
+import Overview from "./pages/Overview.jsx";
+import RevenueBreakdown from "./pages/RevenueBreakdown.jsx";
+import ExpenseBreakdown from "./pages/ExpenseBreakdown.jsx";
+import ProfitLoss from "./pages/ProfitLoss.jsx";
+import KPIs from "./pages/KPIs.jsx";
+import Navbar from "./components/Navbar.jsx";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <Card>
-        <CardHeader>
-          <CardTitle>Hello world!</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p>This is an example</p>
-          <hr className="my-4" />
-          <Button onClick={() => setCount(count + 1)}>Click me</Button>
-          <div>Count: {count}</div>
-        </CardContent>
-      </Card>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Index />} />
+          <Route exact path="/overview" element={<Overview />} />
+          <Route exact path="/revenue-breakdown" element={<RevenueBreakdown />} />
+          <Route exact path="/expense-breakdown" element={<ExpenseBreakdown />} />
+          <Route exact path="/profit-loss" element={<ProfitLoss />} />
+          <Route exact path="/kpis" element={<KPIs />} />
+        </Routes>
+      </Router>
     </>
   );
 }
